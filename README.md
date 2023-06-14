@@ -106,7 +106,54 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 
-### PROGRAM 
+### PROGRAM ###SR flipflop
+```
+module srflipflop(s,r,clk,q,qbar);
+input s,r,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=s|(~r&q);
+qbar<=r|(~s&~q);
+end
+endmodule
+###JK flipflop
+module jkflipflop(j,k,clk,q,qbar);
+input j,k,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+RTL LOGIC FOR FLIPFLOPS
+#SR flipflop
+end
+endmodule
+###T flipflop
+module tflipflop(t,clk,q,qbar);
+input t,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=(t&~q)|(~t&q);
+qbar<=~q;
+end
+endmodule
+###D flipflop
+module dflipflop(d,clk,q,qbar);
+input d,clk;
+output q,qbar;
+reg q,qbar;
+always @(posedge clk)
+begin
+q<=d;
+qbar<=~q;
+end
+endmodule
+```
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by: 
@@ -119,7 +166,15 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+##SR RTL
+![243056866-965d2708-7d67-4baa-839d-ccba09d661bc](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/39d76ca5-52d8-43d4-a331-e0a168a57340)
 
+##JK RTL
+![243056950-89933d1b-8c3b-42bf-a551-1f2fcabec5b5](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/913a27b0-fdbc-4e07-8cc4-2c3d8b968779)
+##T RTL
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/304d2d96-678f-4959-8708-f5e981e0c86d)
+##D
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/eea06504-77b3-464d-9bac-a3af93b8431f)
 
 
 
@@ -130,8 +185,13 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/659af0e2-b2fd-496a-a19f-0a9fdd5ba252)
 
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/18549e5e-2c1c-40e3-9f18-1288a0e2508b)
 
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/08cc9084-9792-4bc4-aea5-93e200d06c5e)
+
+![image](https://github.com/Stephenula/Experiment--05-Implementation-of-flipflops-using-verilog/assets/130553855/5db9a6c7-e421-4c5f-b3bb-4c9fefc54437)
 
 
 
